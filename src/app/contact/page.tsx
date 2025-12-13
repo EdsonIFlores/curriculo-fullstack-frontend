@@ -1,100 +1,143 @@
-import React from 'react';
-import EdsonSkills from '../../components/SkillsSection'; // Corrigido
+'use client'; 
+// O 'use client' é essencial para usar useState e FormEvent
 
-const HomePage: React.FC = () => {
-  return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
-      
-      {/* --------------------------- */}
-      {/* 1. SEÇÃO DE RESUMO (TOPO) */}
-      {/* --------------------------- */}
-      <h1 style={{ fontSize: '2.5em', borderBottom: '2px solid #0070f3', paddingBottom: '10px' }}>
-        Edson Iago Flores
-      </h1>
-      <h2 style={{ color: '#555', fontSize: '1.4em', marginBottom: '20px' }}>
-        Profissional de Tecnologia | Especialista em Suporte Técnico de TI | Desenvolvedor Full-Stack em Formação
-      </h2>
+import React, { useState, FormEvent } from 'react';
 
-      <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
-        Sou um entusiasta da tecnologia com **mais de 13 anos de experiência em suporte técnico de TI** em ambientes corporativos e clínicos. Minha paixão pela tecnologia e compromisso com a excelência me impulsionam a buscar constante desenvolvimento e atualização profissional. Atualmente, estou ampliando meus horizontes acadêmicos ao cursar **Análise e Desenvolvimento de Sistemas** (Unopa) e **Ciência da Computação** (IFG), focando no **desenvolvimento Full-Stack (MERN)** para enfrentar os desafios do mercado com uma base sólida e moderna. Reconhecido por minha **proatividade, extroversão e comunicação eficaz** com diversos públicos.
-      </p>
+// A URL da API é lida do .env.local (http://localhost:3001)
+// Garantimos um fallback caso a variável não seja lida (embora não deva acontecer)
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
-      {/* --------------------------- */}
-      {/* 2. SEÇÃO DE HABILIDADES */}
-      {/* --------------------------- */}
-      <EdsonSkills />
+const ContactPage: React.FC = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [responseMessage, setResponseMessage] = useState('');
 
-      {/* --------------------------- */}
-      {/* 3. SEÇÃO DE EXPERIÊNCIA */}
-      {/* --------------------------- */}
-      <h2 style={{ color: '#0070f3', marginTop: '40px', borderBottom: '1px solid #ddd', paddingBottom: '10px' }}>
-        💼 Experiência Profissional
-      </h2>
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+        setResponseMessage('');
 
-      {/* Cargo 1: Técnico de sistemas de informação - Dexian (Cargill) */}
-      <div style={{ marginBottom: '25px', padding: '15px', border: '1px solid #eee', borderRadius: '5px' }}>
-        <h3 style={{ margin: '0', color: '#333' }}>Técnico de Sistemas de Informação</h3>
-        <p style={{ margin: '5px 0', fontSize: '1.1em', fontWeight: 'bold' }}>Dexian (Alocado na Cargill)</p>
-        <p style={{ margin: '5px 0', color: '#666', fontSize: '0.9em' }}>dez de 2025 – o momento (Barreiras, BA)</p>
-        <ul style={{ paddingLeft: '20px', margin: '10px 0 0' }}>
-          <li>Suporte e manutenção de sistemas de TI para garantir a continuidade operacional das atividades, com foco em sistemas como TOTVS Protheus.</li>
-        </ul>
-      </div>
+        // Monta o endpoint usando a variável de ambiente
+        const endpoint = `${API_URL}/contact`; 
 
-      {/* Cargo 2: Analista de suporte técnico - Quality Digital */}
-      <div style={{ marginBottom: '25px', padding: '15px', border: '1px solid #eee', borderRadius: '5px' }}>
-        <h3 style={{ margin: '0', color: '#333' }}>Analista de Suporte Técnico</h3>
-        <p style={{ margin: '5px 0', fontSize: '1.1em', fontWeight: 'bold' }}>Quality Digital</p>
-        <p style={{ margin: '5px 0', color: '#666', fontSize: '0.9em' }}>dez de 2024 – o momento (1 ano 1 mês) | Híbrida</p>
-        <ul style={{ paddingLeft: '20px', margin: '10px 0 0' }}>
-          <li>Responsável pela administração de redes, análise e resolução de problemas complexos em Servidores (Windows/Linux) e infraestrutura de TI.</li>
-          <li>Atuação em instalação e manutenção de hardware, software, VPN, impressoras e sistemas de PDV.</li>
-        </ul>
-      </div>
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
 
-      {/* Cargo 3: Analista de infraestrutura - Dantas */}
-      <div style={{ marginBottom: '25px', padding: '15px', border: '1px solid #eee', borderRadius: '5px' }}>
-        <h3 style={{ margin: '0', color: '#333' }}>Analista de Infraestrutura</h3>
-        <p style={{ margin: '5px 0', fontSize: '1.1em', fontWeight: 'bold' }}>Dantas</p>
-        <p style={{ margin: '5px 0', color: '#666', fontSize: '0.9em' }}>jun de 2024 – abr de 2025 (11 meses) | Presencial</p>
-        <ul style={{ paddingLeft: '20px', margin: '10px 0 0' }}>
-          <li>Atuação em administração de redes, operações de rede de computadores e infraestrutura geral de TI, com foco em Linux e Servidores.</li>
-        </ul>
-      </div>
+            if (response.ok) {
+                const data = await response.json();
+                setStatus('success');
+                setResponseMessage(data.message || 'Mensagem enviada com sucesso!');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                const errorData = await response.json();
+                setStatus('error');
+                setResponseMessage(errorData.error || 'Erro ao enviar. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro de rede/servidor:', error);
+            setStatus('error');
+            setResponseMessage('Não foi possível conectar ao servidor da API. Verifique se o Backend está ativo.');
+        }
+    };
 
-      {/* --------------------------- */}
-      {/* 4. SEÇÃO DE FORMAÇÃO */}
-      {/* --------------------------- */}
-      <h2 style={{ color: '#0070f3', marginTop: '40px', borderBottom: '1px solid #ddd', paddingBottom: '10px' }}>
-        🎓 Formação e Certificações
-      </h2>
+    return (
+        <div style={{ maxWidth: '600px', margin: '40px auto', padding: '20px', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+            <h1 style={{ color: '#0070f3', borderBottom: '2px solid #eee', paddingBottom: '10px' }}>
+                ✉️ Fale Comigo
+            </h1>
+            <p style={{ color: '#555', marginBottom: '25px' }}>
+                Use o formulário abaixo para entrar em contato diretamente. Se preferir, me encontre no LinkedIn e GitHub (links no rodapé).
+            </p>
 
-      <div style={{ marginBottom: '15px' }}>
-        <h3 style={{ margin: '0' }}>Ciência da Computação (Bacharelado)</h3>
-        <p style={{ margin: '5px 0', fontWeight: 'bold' }}>Instituto Federal de Goiás (IFG)</p>
-        <p style={{ margin: '5px 0', color: '#666' }}>mar de 2023 - mar de 2027</p>
-      </div>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                
+                <input
+                    type="text"
+                    placeholder="Seu Nome Completo"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    disabled={status === 'loading'}
+                    style={inputStyle}
+                />
+                
+                <input
+                    type="email"
+                    placeholder="Seu Melhor Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    disabled={status === 'loading'}
+                    style={inputStyle}
+                />
+                
+                <textarea
+                    placeholder="Sua Mensagem / Proposta de Projeto"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    rows={6}
+                    disabled={status === 'loading'}
+                    style={{ ...inputStyle, resize: 'vertical' }}
+                />
 
-       <div style={{ marginBottom: '15px' }}>
-        <h3 style={{ margin: '0' }}>Cybersecurity Essentials</h3>
-        <p style={{ margin: '5px 0', fontWeight: 'bold' }}>Cisco Networking Academy</p>
-        <p style={{ margin: '5px 0', color: '#666' }}>jul de 2024</p>
-      </div>
-      
-      <div style={{ marginBottom: '15px' }}>
-        <h3 style={{ margin: '0' }}>Bootcamp Mikrotik em Prática</h3>
-        <p style={{ margin: '5px 0', fontWeight: 'bold' }}>Hackone</p>
-        <p style={{ margin: '5px 0', color: '#666' }}>jul de 2024</p>
-      </div>
+                <button 
+                    type="submit" 
+                    disabled={status === 'loading'}
+                    style={buttonStyle(status)}
+                >
+                    {status === 'loading' ? 'Enviando...' : 'Enviar Mensagem'}
+                </button>
+            </form>
 
-      <div style={{ marginBottom: '15px' }}>
-        <h3 style={{ margin: '0' }}>Formação em Administração de Redes</h3>
-        <p style={{ margin: '5px 0', fontWeight: 'bold' }}>Alura</p>
-        <p style={{ margin: '5px 0', color: '#666' }}>jul de 2022</p>
-      </div>
-
-    </div>
-  );
+            {/* Mensagens de Status */}
+            {responseMessage && (
+                <div style={statusMessageStyle(status)}>
+                    {responseMessage}
+                </div>
+            )}
+        </div>
+    );
 };
 
-export default HomePage;
+export default ContactPage;
+
+// --- Estilos Inline ---
+const inputStyle: React.CSSProperties = {
+    padding: '12px',
+    border: '1px solid #ddd',
+    borderRadius: '6px',
+    fontSize: '1em',
+};
+
+const buttonStyle = (status: string): React.CSSProperties => ({
+    padding: '12px',
+    backgroundColor: status === 'loading' ? '#999' : '#0070f3',
+    color: 'white',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: status === 'loading' ? 'not-allowed' : 'pointer',
+    fontSize: '1em',
+    fontWeight: 'bold',
+    transition: 'background-color 0.3s',
+});
+
+const statusMessageStyle = (status: string): React.CSSProperties => ({
+    marginTop: '20px',
+    padding: '15px',
+    borderRadius: '6px',
+    backgroundColor: status === 'success' ? '#d4edda' : status === 'error' ? '#f8d7da' : 'transparent',
+    color: status === 'success' ? '#155724' : status === 'error' ? '#721c24' : '#333',
+    border: status === 'success' ? '1px solid #c3e6cb' : status === 'error' ? '1px solid #f5c6cb' : 'none',
+    fontWeight: 'bold'
+});
