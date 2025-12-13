@@ -8,19 +8,34 @@ const Header: React.FC = () => {
       padding: '20px', 
       display: 'flex', 
       justifyContent: 'space-between', 
-      alignItems: 'center' 
+      alignItems: 'center',
+      boxShadow: '0 4px 6px rgba(0,0,0,0.1)' // Adiciona uma sombra para profundidade
     }}>
       <div style={{ fontSize: '1.5em', fontWeight: 'bold' }}>
-        Edson Flores | Full-Stack Developer
+        <Link href="/" style={{ color: '#0070f3', textDecoration: 'none' }}>
+          Edson Flores 
+        </Link>
+        <span style={{ color: 'white', fontSize: '0.9em', marginLeft: '5px' }}>| Full-Stack Dev</span>
       </div>
       <nav>
-        <Link href="/" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>
+        <Link href="/" style={{ margin: '0 15px', color: 'white', textDecoration: 'none', transition: 'color 0.2s' }}>
           Resumo
         </Link>
-        <Link href="/projetos" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>
+        <Link href="/projetos" style={{ margin: '0 15px', color: 'white', textDecoration: 'none', transition: 'color 0.2s' }}>
           Projetos
         </Link>
-        <Link href="/contact" style={{ margin: '0 15px', color: 'white', textDecoration: 'none' }}>
+        <Link 
+          href="/contact" 
+          style={{ 
+            margin: '0 15px', 
+            textDecoration: 'none', 
+            backgroundColor: '#0070f3', 
+            padding: '8px 15px', 
+            borderRadius: '5px', 
+            color: 'white', 
+            fontWeight: 'bold' 
+          }}
+        >
           Contato
         </Link>
       </nav>
@@ -28,27 +43,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;import type { Metadata } from "next";
-// Importar os componentes Header e Footer
-import Header from "../components/Header"; 
-import Footer from "../components/Footer"; 
-
-// ... (Resto do seu código de Metadata) ...
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="pt-br">
-      <body>
-        <Header /> {/* Adiciona o Cabeçalho aqui */}
-        <main style={{ minHeight: '80vh', padding: '20px' }}>
-          {children} 
-        </main>
-        <Footer /> {/* Adiciona o Rodapé aqui */}
-      </body>
-    </html>
-  );
-}
+export default Header;

@@ -1,26 +1,38 @@
-@import "tailwindcss";
+/* src/app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Define a fonte padrão para o site e zera margens/paddings */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8; /* Cor de fundo suave para destacar os cards */
+  color: #333; /* Cor de texto principal */
+}
+
+/* Garante que o container principal ocupe todo o espaço */
+#__next {
+  min-height: 100vh;
+}
+
+/* Remove a sublinhado padrão de todos os links */
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* Estilo para links quando o mouse passa por cima */
+a:hover {
+  color: #004d99; /* Um azul mais escuro no hover */
+}
+
+/* Estilo para todos os títulos */
+h1, h2, h3, h4 {
+  color: #282c34; /* Um cinza escuro para títulos */
+}
+
+/* Remove a decoração de lista */
+ul {
+  list-style: none;
+  padding: 0;
 }
