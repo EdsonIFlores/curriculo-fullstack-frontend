@@ -1,44 +1,55 @@
+'use client'; 
+
+import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Inicio", href: "/" }, // Link para a nova Home
+    { name: "Resumo", href: "/resumo" },
+    { name: "Habilidades", href: "/habilidades" },
+    { name: "Experiencia", href: "/experiencia" },
+    { name: "Contato", href: "/contato" },
+  ];
+
   return (
-    <header style={{ 
-      backgroundColor: '#282c34', 
-      color: 'white', 
-      padding: '20px', 
-      display: 'flex', 
-      justifyContent: 'space-between', 
-      alignItems: 'center',
-      boxShadow: '0 4px 6px rgba(0,0,0,0.1)' // Adiciona uma sombra para profundidade
+    <header className="header-nav" style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      zIndex: 1000,
     }}>
-      <div style={{ fontSize: '1.5em', fontWeight: 'bold' }}>
-        <Link href="/" style={{ color: '#0070f3', textDecoration: 'none' }}>
-          Edson Flores 
+      <div style={{
+        maxWidth: '900px',
+        margin: '0 auto',
+        padding: '15px 20px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        {/* Logo/Nome */}
+        <Link href="/" style={{ fontSize: '1.5em', fontWeight: 'bold', color: 'var(--accent-color)' }}>
+          Edson Flores | Full-Stack Dev
         </Link>
-        <span style={{ color: 'white', fontSize: '0.9em', marginLeft: '5px' }}>| Full-Stack Dev</span>
+
+        {/* Links de Navegação */}
+        <nav>
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.href} 
+              className={pathname === link.href ? 'active' : ''} // Ativa o destaque se for a página atual
+              style={{ margin: '0 10px', paddingBottom: '5px' }}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
       </div>
-      <nav>
-        <Link href="/" style={{ margin: '0 15px', color: 'white', textDecoration: 'none', transition: 'color 0.2s' }}>
-          Resumo
-        </Link>
-        <Link href="/projetos" style={{ margin: '0 15px', color: 'white', textDecoration: 'none', transition: 'color 0.2s' }}>
-          Projetos
-        </Link>
-        <Link 
-          href="/contact" 
-          style={{ 
-            margin: '0 15px', 
-            textDecoration: 'none', 
-            backgroundColor: '#0070f3', 
-            padding: '8px 15px', 
-            borderRadius: '5px', 
-            color: 'white', 
-            fontWeight: 'bold' 
-          }}
-        >
-          Contato
-        </Link>
-      </nav>
     </header>
   );
 };

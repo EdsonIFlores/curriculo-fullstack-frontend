@@ -1,73 +1,41 @@
 import React from 'react';
 
-interface SkillProps {
-  title: string;
-  items: string[];
-}
+const skillCategories = [
+    {
+        title: '💻 Desenvolvimento Full-Stack (Foco MERN)',
+        skills: ['JavaScript (ES6+)', 'Node.js', 'React.js', 'Next.js', 'Express.js', 'MongoDB', 'HTML5/CSS3', 'Git/GitHub'],
+    },
+    {
+        title: '⚙️ Infraestrutura e Suporte de TI',
+        skills: ['Suporte Técnico N3', 'Administração Windows/Linux Server', 'Redes e VPN', 'TOTVS Protheus (Suporte)', 'MikroTik', 'Troubleshooting Avançado', 'Automação (Scripts Python)'],
+    },
+    {
+        title: '💡 Habilidades Comportamentais',
+        skills: ['Proatividade', 'Comunicação Interpessoal', 'Extroversão', 'Resolução de Problemas', 'Orientação a Resultados'],
+    },
+];
 
-const SkillsSection: React.FC<SkillProps> = ({ title, items }) => (
-  <div style={{ marginBottom: '20px', borderLeft: '3px solid #0070f3', paddingLeft: '15px' }}>
-    <h3 style={{ borderBottom: '1px solid #eee', paddingBottom: '5px', color: '#333' }}>
-      {title}
-    </h3>
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-      {items.map((item, index) => (
-        <span 
-          key={index} 
-          style={{ 
-            backgroundColor: '#0070f3', 
-            color: 'white', 
-            padding: '5px 10px', 
-            borderRadius: '5px', 
-            fontSize: '0.9em' 
-          }}
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-);
-
-const EdsonSkills: React.FC = () => {
-  const devSkills = [
-    'Análise e Desenvolvimento de Sistemas (Estudante)', 
-    'JavaScript', 
-    'Node.js', 
-    'Express.js', 
-    'React (Next.js)', 
-    'MongoDB (MERN Stack)',
-    'Git/GitHub'
-  ];
-
-  const infraSkills = [
-    'Linux (Administração e Suporte)', 
-    'Administração de Redes', 
-    'Servidores (Windows/Linux)', 
-    'VPN', 
-    'Infraestrutura de TI',
-    'MikroTik',
-    'Segurança de Rede (Cisco Cybersecurity Essentials)'
-  ];
-
-  const techSupportSkills = [
-    'TOTVS Protheus', 
-    'Suporte Técnico (Nível Sr.)', 
-    'Resolução de Problemas', 
-    'Hardware e Software', 
-    'Atendimento ao Cliente',
-    'Office 365', 
-    'Análise de Dados'
-  ];
-
-  return (
-    <div>
-      <h2 style={{ color: '#0070f3', marginTop: '30px' }}>🎯 Habilidades Técnicas</h2>
-      <SkillsSection title="Desenvolvimento (Full-Stack em Formação)" items={devSkills} />
-      <SkillsSection title="Infraestrutura e Redes" items={infraSkills} />
-      <SkillsSection title="Suporte e Operações de TI" items={techSupportSkills} />
-    </div>
-  );
+const SkillsSection: React.FC = () => {
+    return (
+        <section id="habilidades" style={{ marginTop: '40px' }}>
+            <h2 style={{ color: 'var(--primary-color)', borderBottom: '1px solid var(--border-color)', paddingBottom: '10px', marginBottom: '20px', fontSize: '1.8em' }}>
+                🛠️ Habilidades Técnicas e Comportamentais
+            </h2>
+            
+            {skillCategories.map((category, index) => (
+                <div key={index} style={{ marginBottom: '25px' }}>
+                    <h4 style={{ color: 'var(--text-light)', marginBottom: '10px' }}>{category.title}</h4>
+                    <div>
+                        {category.skills.map((skill, skillIndex) => (
+                            <span key={skillIndex} className="skill-tag">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </section>
+    );
 };
 
-export default EdsonSkills;
+export default SkillsSection;
