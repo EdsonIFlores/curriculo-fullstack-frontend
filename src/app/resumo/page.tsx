@@ -14,9 +14,14 @@ const ResumoPage: React.FC = () => {
             </h1>
             
             {/* ... Sua seção de Perfil Profissional (Resumo) aqui ... */}
+          {/* Seção de Perfil Profissional */}
+<p style={{ marginTop: '20px', lineHeight: '1.6', color: 'var(--text-secondary)', textAlign: 'center' }}>
+  Desenvolvedor <strong>Full-Stack (MERN)</strong> em transição de carreira, com uma base estratégica consolidada em <strong>Infraestrutura de TI e Sistemas Corporativos</strong>. 
+  Essa experiência me fornece uma visão completa sobre escalabilidade, segurança e arquitetura, essencial para construir aplicações robustas. 
+  Sou proativo, focado em resolução de problemas complexos e dedicado ao aprendizado contínuo do ecossistema moderno (MongoDB, Express, React, Node.js).
+</p>
 
-            <hr style={{ margin: '40px 0', borderColor: 'var(--border-color)' }} />
-            
+<hr style={{ margin: '40px 0', border: '0', borderTop: '1px solid var(--border-color)', width: '100%' }} />
             {/* --------------------------- EDUCAÇÃO (Com Cards Clicáveis) --------------------------- */}
             <section style={{ marginBottom: '40px' }}>
                 <h2>📚 Formação Acadêmica</h2>

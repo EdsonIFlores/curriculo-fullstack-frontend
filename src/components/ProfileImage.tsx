@@ -1,17 +1,32 @@
-import Image from 'next/image';
+'use client';
 
-const ProfileImage = () => {
+import React from 'react';
+
+export default function ProfileImage() {
   return (
-    <div className="profile-image-container">
-      <Image 
-        src="/foto-perfil.jpg" // Certifique-se que o nome do arquivo na pasta public está igual
-        alt="Edson Flores"
-        width={180}
-        height={180}
-        priority
+    <div className="img-wrapper">
+      {/* O nome aqui deve ser EXATAMENTE igual ao da pasta public */}
+      <img 
+        src="/foto-perfil.jpg" 
+        alt="Edson Iago Flores" 
+        className="profile-img"
       />
+      <style jsx>{`
+        .img-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          background: #111;
+        }
+        .profile-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Preenche o círculo sem achatar */
+          object-position: center;
+          border-radius: 50%;
+          display: block;
+        }
+      `}</style>
     </div>
   );
-};
-
-export default ProfileImage;
+}

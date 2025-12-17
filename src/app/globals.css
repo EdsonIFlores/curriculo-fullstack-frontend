@@ -304,21 +304,22 @@ body {
 
 /* Ajuste específico para a Foto de Perfil */
 .profile-image-container {
-  width: 180px;  /* Tamanho no Computador */
-  height: 180px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
-  border: 4px solid var(--primary-color);
+  border: 6px solid #00d1ff;
+  box-shadow: 0 0 30px rgba(0, 209, 255, 0.4);
+  position: relative; /* Essencial para o Next.js Image fill */
   overflow: hidden;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #1a1a1a;
+  flex-shrink: 0; /* Impede que o círculo amasse em telas menores */
 }
 
 .profile-image-container img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* Faz a foto preencher sem distorcer */
+  object-position: center; /* Garante que o rosto fique no meio */
 }
 
 /* MEDIA QUERY PARA CELULAR */
