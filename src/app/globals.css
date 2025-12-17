@@ -332,4 +332,68 @@ body {
     font-size: 1.8rem !important; /* Diminui o título para não quebrar feio */
     text-align: center;
   }
+}/* HEADER RESPONSIVO */
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(16, 16, 16, 0.95);
+  border-bottom: 1px solid #333;
+}
+
+.header-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00c0d3; /* var(--accent-color) */
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  padding-bottom: 4px;
+}
+
+.nav-item.active {
+  color: #0070f3; /* var(--primary-color) */
+  border-bottom: 2px solid #0070f3;
+}
+
+/* AJUSTES MOBILE */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .dev-tag {
+    display: none; /* Esconde o texto longo no mobile como planejado */
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
 }

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-// O restante das importações de fontes
+// Importação das fontes Geist
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,13 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }} 
-      >
+      <head>
+        {/* Garante a escala correta em dispositivos móveis */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased layout-container`}>
         <Header />
 
-        <main style={{ flexGrow: 1 }}>
+        {/* 'main-content' gerencia o espaçamento superior para o Header fixo via CSS */}
+        <main className="main-content">
           {children}
         </main>
         
