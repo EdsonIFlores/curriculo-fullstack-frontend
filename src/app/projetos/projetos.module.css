@@ -1,0 +1,99 @@
+/* src/app/projetos/projetos.module.css */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #0d0d0d;
+  color: white;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #00d1ff;
+  border-bottom: 2px solid #00d1ff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.projectCard {
+  background: #161616;
+  border: 1px solid #222;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  border-color: #333;
+}
+
+.projectTitle {
+  color: #00d1ff;
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.techList {
+  font-size: 0.85rem;
+  color: #00ff88;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.description {
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Importante para o mobile */
+}
+
+.btnPrimary {
+  text-decoration: none;
+  background-color: #00d1ff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btnSecondary {
+  text-decoration: none;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* --- RESPONSIVIDADE MOBILE --- */
+@media (max-width: 768px) {
+  .title { font-size: 1.8rem; text-align: center; }
+  .subtitle { text-align: center; font-size: 1rem; }
+  
+  .buttonGroup {
+    flex-direction: column; /* Botões um sobre o outro no celular */
+  }
+  
+  .btnPrimary, .btnSecondary {
+    text-align: center;
+    width: 100%; /* Botões ocupam a largura toda no toque */
+  }
+}

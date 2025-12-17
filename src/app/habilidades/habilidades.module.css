@@ -1,0 +1,87 @@
+.container {
+  padding: 60px 10%;
+  background-color: #0d0d0d;
+  color: white;
+  min-height: 100vh;
+}
+
+.sectionTitle {
+  color: #00d1ff;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.sectionSubtitle {
+  color: #888;
+  margin-bottom: 40px;
+}
+
+.gridHabilidades {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.skillCard {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.skillHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 15px;
+}
+
+.icone {
+  font-size: 2rem;
+}
+
+.tagsGrid {
+  display: grid;
+  /* Garante que as tags se ajustem sozinhas */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.tagItem {
+  background: #222;
+  color: #efefef;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  border: 1px solid #333;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.tagItem:hover {
+  border-color: #00d1ff;
+  background: #1a1a1a;
+  transform: scale(1.05);
+}
+
+/* AJUSTE PARA CELULAR */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 15px;
+  }
+
+  .tagsGrid {
+    /* Força duas colunas no celular para não sobrar espaço vazio */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}

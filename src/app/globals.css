@@ -521,4 +521,87 @@ body {
   border-radius: 6px;
   font-size: 0.8rem;
   border: 1px solid #444;
+}/* Estilos Gerais do Header */
+.header-nav {
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.dev-tag {
+  color: #00d1ff;
+  font-weight: normal;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: #888;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #00d1ff;
+}
+
+/* --- AJUSTE MOBILE --- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .nav-links {
+    width: 100%;
+    overflow-x: auto; /* Permite deslizar os links lateralmente */
+    padding: 10px 20px;
+    justify-content: flex-start; /* Alinha os links ao início para o scroll */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Esconde a barra no Firefox */
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Esconde a barra no Chrome/Safari */
+  }
+
+  .nav-item {
+    white-space: nowrap; /* Impede que os nomes dos links quebrem linha */
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+}@media (max-width: 768px) {
+  .nav-links {
+    gap: 12px; /* Reduz um pouco o espaço entre links no celular */
+    padding-bottom: 5px; /* Espaço para não encostar na borda durante o scroll */
+  }
+  
+  .nav-item {
+    font-size: 0.85rem; /* Diminui levemente a fonte para caber mais itens */
+  }
 }

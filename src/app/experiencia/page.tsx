@@ -1,103 +1,117 @@
 'use client';
 
 import React from 'react';
-import styles from './experiencia.module.css'; 
+import styles from './experiencia.module.css';
+
+const experiencias = [
+  {
+    cargo: "Técnico de Sistemas de Informação",
+    empresa: "Dexian (Alocado na Cargill)",
+    periodo: "Dez 2025 - Momento",
+    local: "Barreiras, BA",
+    descricao: "Suporte e manutenção de sistemas de TI para garantir a continuidade operacional das atividades da Cargill.",
+    competencias: ["TOTVS Protheus", "Windows 7", "Suporte Sistemas"]
+  },
+  {
+    cargo: "Analista de Suporte Técnico",
+    empresa: "Quality Digital",
+    periodo: "Dez 2024 - Momento",
+    local: "Híbrido",
+    descricao: "Administração de redes, servidores, VPN e gestão de infraestrutura de TI.",
+    competencias: ["Redes", "Servidores", "VPN", "Linux", "Infraestrutura"]
+  },
+  {
+    cargo: "Analista de Infraestrutura",
+    empresa: "Dantas",
+    periodo: "Jun 2024 - Abr 2025",
+    local: "Barreiras, BA",
+    descricao: "Operações de rede, segurança via VPN e resolução de problemas técnicos complexos.",
+    competencias: ["Wireless", "Troubleshooting", "VPN", "Segurança"]
+  },
+  {
+    cargo: "Analista de Suporte Técnico",
+    empresa: "UFOB (Univ. Federal do Oeste da Bahia)",
+    periodo: "Jan 2024 - Abr 2024",
+    local: "Barreiras, BA",
+    descricao: "Operações de TI e rede, suporte ao cliente e manutenção de servidores Windows.",
+    competencias: ["Office 365", "Servidor Windows", "Hardware", "Redes"]
+  },
+  {
+    cargo: "Analista de Sistemas",
+    empresa: "Delta Alumínios",
+    periodo: "Out 2023 - Jan 2024",
+    local: "Rio Verde, GO",
+    descricao: "Administração de redes e servidores em ambiente industrial.",
+    competencias: ["Redes", "Windows 10", "Servidores"]
+  },
+  {
+    cargo: "Técnico Administrativo SR",
+    empresa: "Rumo",
+    periodo: "Dez 2022 - Out 2023",
+    local: "Rio Verde, GO",
+    descricao: "Liderança de projetos, gestão SAP e análise de dados operacionais.",
+    competencias: ["SAP", "Liderança", "Gestão de Projetos", "Análise de Dados"]
+  },
+  {
+    cargo: "Analista de Suporte Técnico",
+    empresa: "Quality S.A.",
+    periodo: "Mai 2022 - Dez 2022",
+    local: "Rio Verde, GO",
+    descricao: "Controle de acesso, redes LAN e manutenção preventiva de hardware.",
+    competencias: ["LAN", "Controle de Acesso", "Hardware", "Cabeamento"]
+  },
+  {
+    cargo: "Suporte Técnico",
+    empresa: "CDI",
+    periodo: "Fev 2021 - Mai 2022",
+    local: "Barreiras, BA",
+    descricao: "Instalação de redes estruturadas, manutenção de computadores e suporte ao usuário final.",
+    competencias: ["Redes sem fio", "Hardware", "Atendimento"]
+  },
+  {
+    cargo: "Técnico em Segurança Eletrônica",
+    empresa: "Proteção Alarmes",
+    periodo: "Dez 2020 - Dez 2021",
+    local: "Barreiras, BA",
+    descricao: "Instalação e manutenção de sistemas de segurança eletrônica e monitoramento interno.",
+    competencias: ["CFTV", "Segurança Eletrônica", "Redes"]
+  },
+  {
+    cargo: "Técnico de Informática",
+    empresa: "Severinos / CW / Pereira",
+    periodo: "2013 - 2017",
+    local: "Barreiras / Barretos",
+    descricao: "Início da carreira com manutenção de hardware, redes e suporte técnico de campo.",
+    competencias: ["Manutenção", "Sistemas Operacionais", "Hardware"]
+  }
+];
 
 export default function ExperienciaPage() {
   return (
     <main className={styles.container}>
-      {/* COLUNA ESQUERDA: TRAJETÓRIA */}
-      <section>
-        <h2 className={styles.sectionTitle}>Trajetória Profissional</h2>
-        <p className={styles.sectionSubtitle}>Mais de 10 anos de experiência em TI</p>
-
-        <div className={styles.timeline}>
-          {/* EXPERIÊNCIA 1 */}
-          <div className={styles.expCard}>
-            <span className={styles.badgeDestaque}>DESTAQUE</span>
-            <h3 className={styles.jobTitle}>Técnico de Sistemas</h3>
-            <p className={styles.companyName}>Dexian (Cargill)</p>
-            <p className={styles.dateText}>Dez 2025 - Momento</p>
-            <p className={styles.description}>
-              Suporte e manutenção de sistemas de TI para garantir a continuidade operacional, focado em ERP e suporte N2.
-            </p>
-            <div className={styles.miniTags}>
-              <span>TOTVS Protheus</span>
-              <span>Suporte N2</span>
+      <h2 className={styles.sectionTitle}>Trajetória Profissional</h2>
+      
+      <div className={styles.timeline}>
+        {experiencias.map((exp, index) => (
+          <div key={index} className={styles.expCard}>
+            <div className={styles.cardHeader}>
+              <span className={styles.periodo}>{exp.periodo}</span>
+              <span className={styles.local}>{exp.local}</span>
+            </div>
+            
+            <h3 className={styles.jobTitle}>{exp.cargo}</h3>
+            <h4 className={styles.company}>{exp.empresa}</h4>
+            
+            <p className={styles.description}>{exp.descricao}</p>
+            
+            <div className={styles.skillsTagContainer}>
+              {exp.competencias.map((skill, sIndex) => (
+                <span key={sIndex} className={styles.skillTag}>{skill}</span>
+              ))}
             </div>
           </div>
-
-          {/* EXPERIÊNCIA 2 */}
-          <div className={styles.expCard}>
-            <span className={styles.badgeAtual}>ATUAL</span>
-            <h3 className={styles.jobTitle}>Analista de Suporte</h3>
-            <p className={styles.companyName}>Quality Digital</p>
-            <p className={styles.dateText}>Dez 2024 - Momento</p>
-            <p className={styles.description}>
-              Administração de redes, gestão de infraestrutura híbrida e análise crítica de performance de servidores.
-            </p>
-          </div>
-
-          {/* EXPERIÊNCIA 3 (NOVA) */}
-          <div className={styles.expCard}>
-            <h3 className={styles.jobTitle}>Analista de Infraestrutura</h3>
-            <p className={styles.companyName}>Dantas - Traiene</p>
-            <p className={styles.dateText}>Jun 2024 - Abr 2025</p>
-            <p className={styles.description}>
-              Implementação de soluções de redes sem fio, troubleshooting avançado e suporte a sistemas ERP.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* COLUNA DIREITA: HABILIDADES */}
-      <section>
-        <h2 className={styles.sectionTitle}>Habilidades Técnicas</h2>
-        <p className={styles.sectionSubtitle}>Clique para ver as tecnologias específicas</p>
-
-        <div className={styles.skillCard}>
-          <div className={styles.skillHeader}>
-            <span style={{fontSize: '2rem'}}>⚛️</span>
-            <h3>Full-Stack Dev</h3>
-          </div>
-          <div className={styles.tagsGrid}>
-            <div className={styles.tagGray}>React.js</div>
-            <div className={styles.tagGray}>Next.js</div>
-            <div className={styles.tagGray}>Node.js</div>
-            <div className={styles.tagGray}>TypeScript</div>
-            <div className={styles.tagGray}>MongoDB</div>
-            <div className={styles.tagGray}>PostgreSQL</div>
-          </div>
-        </div>
-
-        <div className={styles.skillCard}>
-          <div className={styles.skillHeader}>
-            <span style={{fontSize: '2rem'}}>🖥️</span>
-            <h3>Infraestrutura & Redes</h3>
-          </div>
-          <div className={styles.tagsGrid}>
-            <div className={styles.tagGray}>Windows Server</div>
-            <div className={styles.tagGray}>Linux (Ubuntu/Debian)</div>
-            <div className={styles.tagGray}>VPN / Firewall</div>
-            <div className={styles.tagGray}>Virtualização (VMware)</div>
-            <div className={styles.tagGray}>Active Directory</div>
-            <div className={styles.tagGray}>Redes Estruturadas</div>
-          </div>
-        </div>
-
-        <div className={styles.skillCard}>
-          <div className={styles.skillHeader}>
-            <span style={{fontSize: '2rem'}}>🛡️</span>
-            <h3>Segurança & Tools</h3>
-          </div>
-          <div className={styles.tagsGrid}>
-            <div className={styles.tagGray}>TOTVS Protheus</div>
-            <div className={styles.tagGray}>Gestão de TI</div>
-            <div className={styles.tagGray}>Backup & Recovery</div>
-            <div className={styles.tagGray}>Monitoramento</div>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
     </main>
   );
 }
