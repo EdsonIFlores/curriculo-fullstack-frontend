@@ -274,3 +274,62 @@ ul {
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+:root {
+  --primary-color: #0070f3;
+  --accent-color: #00c0d3;
+  --bg-primary: #101010;
+  --text-light: #f0f0f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-light);
+  overflow-x: hidden; /* Impede a rolagem lateral no celular */
+}
+
+/* Container que envolve o conteúdo das páginas */
+.main-content {
+  padding: 100px 20px 40px; /* Espaço para o Header */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ajuste específico para a Foto de Perfil */
+.profile-image-container {
+  width: 180px;  /* Tamanho no Computador */
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-color);
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* MEDIA QUERY PARA CELULAR */
+@media (max-width: 768px) {
+  .profile-image-container {
+    width: 140px; /* Reduz um pouco no celular para caber melhor */
+    height: 140px;
+  }
+  
+  h1 {
+    font-size: 1.8rem !important; /* Diminui o título para não quebrar feio */
+    text-align: center;
+  }
+}
