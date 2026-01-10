@@ -12,6 +12,7 @@ const Header: React.FC = () => {
     { name: "Habilidades", href: "/habilidades" },
     { name: "Experiencia", href: "/experiencia" },
     { name: "Projetos", href: "/projetos" }, 
+    { name: "Certificados", href: "/certificados" }, // <-- Adicionado aqui
     { name: "Contato", href: "/contato" },
   ];
 
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
         <Link href="/" className="logo">
           Edson Flores <span className="dev-tag">| Full-Stack Dev</span>
         </Link>
-
+        
         <nav className="nav-links">
           {navLinks.map((link) => (
             <Link 

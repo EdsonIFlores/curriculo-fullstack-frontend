@@ -13,7 +13,7 @@ const ResumoPage: React.FC = () => {
                 Resumo Profissional & Formação
             </h1>
             
-            {/* ... Sua seção de Perfil Profissional (Resumo) aqui ... */}
+      
           {/* Seção de Perfil Profissional */}
 <p style={{ marginTop: '20px', lineHeight: '1.6', color: 'var(--text-secondary)', textAlign: 'center' }}>
   Desenvolvedor <strong>Full-Stack (MERN)</strong> em transição de carreira, com uma base estratégica consolidada em <strong>Infraestrutura de TI e Sistemas Corporativos</strong>. 
