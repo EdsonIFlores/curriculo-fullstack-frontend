@@ -1,24 +1,27 @@
-export const certificados = [
+export const certificadosData = [
   {
     titulo: "Cybersecurity Essentials",
-    instituicao: "Cisco Networking Academy", [cite: 5]
-    imagem: "/images/certificados/cisco-cyber.jpg", 
-    pdf: "/docs/Edson-Cybersecurity.pdf", 
-    pontosChave: [
-      "Táticas e procedimentos de criminosos virtuais", [cite: 8]
-      "Princípios de confidencialidade, integridade e disponibilidade", [cite: 9]
-      "Tecnologias e processos de defesa de rede" [cite: 11, 12]
-    ]
+    instituicao: "Cisco Academy",
+    imagem: "/certificados/Certificado.jpg",
   },
   {
-    titulo: "Bootcamp Mikrotik Hackone",
-    instituicao: "Hackone", [cite: 69]
-    imagem: "/images/certificados/mikrotik.jpg",
-    pdf: "/docs/Edson-Mikrotik.pdf",
-    pontosChave: [
-      "Configuração de Rede LAN (DHCP e VLAN)", [cite: 79]
-      "Implementação de protocolos OSPF e BGP", [cite: 80, 81]
-      "Segurança e melhores práticas de gerência" [cite: 83, 84]
-    ]
+    titulo: "Bootcamp Mikrotik",
+    instituicao: "Hackone",
+    imagem: "/certificados/analista_de_rede.jpg",
+  },
+  {
+    titulo: "Arquitetura de Redes",
+    instituicao: "Gabriel Torres",
+    imagem: "/certificados/arquitetura_de_redes.jpg",
+  },
+  {
+    titulo: "Curso MikroTik v2024",
+    instituicao: "Vitor Mazuco",
+    imagem: "/certificados/curso_mikrotik.jpg",
+  },
+  {
+    titulo: "Programador Full-Stack",
+    instituicao: "SENAI BA",
+    imagem: "/certificados/certificadosenai.jpg",
   }
 ];
