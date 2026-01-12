@@ -13,8 +13,8 @@ export const ResumoFormacaoData: FormacaoItem[] = [
     {
         id: 1,
         titulo: "Desenvolvedor Full-Stack (MERN)",
-        instituicao: "SENAI Barreiras (Plataforma EAD)",
-        ano: "Em Andamento (Previsão: dez/2026)",
+        instituicao: "SENAI São Paulo (Plataforma EAD)",
+        ano: "Janeiro/2026",
         tipo: 'ACADEMICO',
         detalhes: [
             "Construção de aplicações web Full-Stack com MongoDB, Express.js, React e Node.js.",
@@ -24,7 +24,7 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["JavaScript", "React", "Node.js", "MongoDB", "Express.js", "Next.js"]
     },
     
-    // --- FORMAÇÃO SUPERIOR ---
+    // --- FORMAÇÃO SUPERIOR E TÉCNICA ---
     {
         id: 2,
         titulo: "Ciência da Computação (Bacharelado)",
@@ -49,10 +49,22 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         ],
         competencias: ["Resolução de Problemas", "Rede de Computadores", "Comunicação"]
     },
-    
-    // --- CERTIFICAÇÕES RELEVANTES ---
     {
         id: 4,
+        titulo: "Técnico em Eletrotécnica", 
+        instituicao: "Senai Barreiras BA",
+        ano: "2025 (Em andamento)",
+        tipo: 'ACADEMICO', 
+        detalhes: [
+            "Estudos em sistemas elétricos, circuitos e manutenção industrial.",
+            "Desenvolvimento de habilidades práticas em instalações elétricas e segurança no trabalho." 
+        ],
+        competencias: ["Sistemas Elétricos", "Manutenção Industrial", "Segurança no Trabalho"]
+    },
+
+    // --- CERTIFICAÇÕES RELEVANTES ---
+    {
+        id: 5,
         titulo: "Aprenda tudo sobre o Linux! Completo e atualizado v2024!",
         instituicao: "Udemy Alumni",
         ano: "Julho de 2024",
@@ -65,7 +77,7 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["Linux", "Shell Script", "Administração de Sistemas"]
     },
     {
-        id: 5,
+        id: 6,
         titulo: "Cybersecurity Essentials",
         instituicao: "Cisco Networking Academy",
         ano: "Julho de 2024",
@@ -78,10 +90,10 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["Segurança de Rede", "Análise de Dados", "Administração de Redes"]
     },
     {
-        id: 6,
+        id: 7,
         titulo: "Bootcamp Mikrotik - Configuração e Gerenciamento de Redes em pratica",
-        instituicao: "Hackone ",
-        ano: "Junho de 2024 ", 
+        instituicao: "Hackone",
+        ano: "Junho de 2024", 
         tipo: 'CERTIFICACAO',
         detalhes: [
             "Fundamentos essenciais do Mikrotik RouterOS para configurar e administrar redes de forma eficaz.",
@@ -91,7 +103,7 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["Mikrotik", "Redes", "Configuração de Roteadores"]
     },
     {
-        id: 7,
+        id: 8,
         titulo: "Introdução ao Desenvolvimento Web",
         instituicao: "freeCodeCamp",
         ano: "Dezembro de 2023",  
@@ -104,7 +116,7 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["HTML", "CSS", "JavaScript", "Design Responsivo"]
     },
     {
-        id: 8,
+        id: 9,
         titulo: "Fundamentos de Redes de Computadores", 
         instituicao: "Cisco Networking Academy",
         ano: "Novembro de 2023",  
@@ -117,8 +129,8 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["Redes de Computadores", "Configuração de Dispositivos", "Segurança de Rede"]
     },
     {
-        id: 9,
-        titulo: "JavaScript Essentials",            
+        id: 10,
+        titulo: "JavaScript Essentials",             
         instituicao: "Cisco Networking Academy",
         ano: "Outubro de 2023",  
         tipo: 'CERTIFICACAO',   
@@ -130,7 +142,7 @@ export const ResumoFormacaoData: FormacaoItem[] = [
         competencias: ["JavaScript", "DOM", "Programação Assíncrona"]
     },
     {
-        id: 10,
+        id: 11,
         titulo: "Introdução ao Desenvolvimento de Aplicações Web com Node.js",
         instituicao: "Cisco Networking Academy",
         ano: "Setembro de 2023",  
@@ -141,7 +153,9 @@ export const ResumoFormacaoData: FormacaoItem[] = [
             "Introdução ao uso de frameworks como Express.js para desenvolvimento Back-End."
         ],
         competencias: ["Node.js", "Express.js", "Desenvolvimento Back-End"]
-    },   
-    
-    // Inclua o restante dos seus cursos aqui seguindo o mesmo padrão...
+    }
 ];
+    
+
+
+

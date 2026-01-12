@@ -5,20 +5,28 @@ import styles from './experiencia.module.css';
 
 const experiencias = [
   {
+    
     cargo: "Técnico de Sistemas de Informação",
-    empresa: "Dexian (Alocado na Cargill)",
+    empresa: "Dexian (Cargill)",
     periodo: "Dez 2025 - Momento",
     local: "Barreiras, BA",
-    descricao: "Suporte e manutenção de sistemas de TI para garantir a continuidade operacional das atividades da Cargill.",
-    competencias: ["TOTVS Protheus", "Windows 7", "Suporte Sistemas"]
-  },
-  {
+    descricao: "Atuação em regime intermitente prestando suporte técnico especializado e manutenção de sistemas para a operação da Cargill. Foco na continuidade operacional, suporte ao usuário em ambiente Windows 11 e apoio em módulos do ERP TOTVS Protheus. Gestão de chamados e resolução de problemas técnicos de hardware e software em ambiente industrial.",
+    competencias: ["TOTVS Protheus", "Windows 11", "Suporte Nível 2", "ERP", "Atendimento Intermitente"]
+},
+{
     cargo: "Analista de Suporte Técnico",
-    empresa: "Quality Digital",
+    empresa: "Quality Digital (RaiaDrogasil)",
     periodo: "Dez 2024 - Momento",
-    local: "Híbrido",
-    descricao: "Administração de redes, servidores, VPN e gestão de infraestrutura de TI.",
-    competencias: ["Redes", "Servidores", "VPN", "Linux", "Infraestrutura"]
+    local: "Híbrido / Field Service",
+    descricao: "Suporte especializado à infraestrutura tecnológica de unidades farmacêuticas. Responsável pela instalação, configuração e manutenção de PDVs, terminais TC B12, impressoras térmicas e consulta-preços. Atuação direta em formatação de estações, administração de redes LAN e conectividade de periféricos para garantir a continuidade das operações comerciais.",
+    competencias: [
+        "Sistemas de PDV", 
+        "Automação Comercial", 
+        "Manutenção de Hardware", 
+        "Redes", 
+        "Suporte Nível 2"
+    ]
+
   },
   {
     cargo: "Analista de Infraestrutura",

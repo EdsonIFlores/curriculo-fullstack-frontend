@@ -32,18 +32,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. BARRA DE TECNOLOGIAS */}
-      <section className="tech-section">
+{/* 2. BARRA DE TECNOLOGIAS */}
+         <section className="tech-section">
         <div className="line"></div>
         <p className="label">EXPERTISE PRINCIPAL</p>
         <div className="badges">
           <span className="tag">⚛️ React</span>
+          <span className="tag">📜 JavaScript</span>
           <span className="tag">🟢 Node.js</span>
+          <span className="tag">🐍 Python</span>
+          <span className="tag">🔵 C++</span>
+          <span className="tag">🐹 Go</span>
           <span className="tag">🍃 MongoDB</span>
+          <span className="tag">🗄️ SQLite</span>
+          <span className="tag">⚡ Redis</span>
           <span className="tag">🖥️ Infra/SLA</span>
         </div>
       </section>
-
       {/* 3. BOTÕES DE AÇÃO */}
       <section className="actions">
         <Link href="/resumo" className="btn-primary">

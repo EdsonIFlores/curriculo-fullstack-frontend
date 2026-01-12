@@ -8,20 +8,26 @@ const gruposHabilidades = [
     titulo: "Desenvolvimento & Web",
     icone: "⚛️",
     cor: "#00d1ff",
-    tags: ["React.js", "Next.js", "Node.js", "TypeScript", "JavaScript", "REST APIs", "HTML5/CSS3", "Git/GitHub"]
+    tags: ["React.js", "Next.js", "Node.js", "TypeScript", "JavaScript", "Python", "Go", "C++", "REST APIs", "Git/GitHub"]
   },
   {
     titulo: "Infraestrutura & Redes",
     icone: "🖥️",
     cor: "#00ff88",
-    tags: ["Windows Server", "Linux (Ubuntu/Debian)", "Administração de Redes", "VPN", "Firewalls", "Virtualização", "Active Directory", "Cabeamento Estruturado", "Hardware"]
+    tags: ["Windows Server", "Linux (Ubuntu/Debian)", "Mikrotik", "Administração de Redes", "VPN", "Firewalls", "Virtualização", "Active Directory", "Hardware"]
   },
   {
     titulo: "Sistemas & Gestão TI",
     icone: "🛡️",
     cor: "#ffcc00",
-    tags: ["TOTVS Protheus", "SAP", "ERP", "Cybersecurity", "Backup & Recovery", "Monitoramento (Zabbix)", "Suporte Técnico Nivel 2/3", "Gestão de Ativos"]
-  }
+    tags: ["MongoDB", "Redis", "SQLite", "TOTVS Protheus", "SAP", "ERP", "Cybersecurity", "Backup & Recovery", "Monitoramento (Zabbix)"]
+  },
+  {
+  titulo: "Idiomas",
+  icone: "🌎",
+  cor: "#ff5555",
+  tags: ["Português (Nativo)", "Inglês (Técnico)","Espanhol (Básico)"]
+}
 ];
 
 export default function HabilidadesPage() {

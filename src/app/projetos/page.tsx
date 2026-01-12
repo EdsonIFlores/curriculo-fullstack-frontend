@@ -50,19 +50,6 @@ const ProjetosPage: React.FC = () => {
         repoLink="https://github.com/EdsonIFlores/curriculo-fullstack-frontend"
       />
 
-      <ProjectCard
-        title="Ferramenta de Monitoramento de Rede"
-        description="Scripts em Node.js para monitorar saúde de serviços em Linux/Mikrotik, automatizando tarefas de infraestrutura."
-        techStack={['Node.js', 'Linux', 'Bash', 'MikroTik']}
-        repoLink="https://github.com/EdsonIFlores/projeto-monitoramento" 
-      />
-      
-      <ProjectCard
-        title="Dashboard de Análise de Suporte"
-        description="Painel interativo em React para visualização de métricas de suporte técnico e desempenho de rede."
-        techStack={['React', 'Análise de Dados', 'Chart.js']}
-        repoLink="https://github.com/EdsonIFlores/dashboard-suporte"
-      />
     </main>
   );
 };
