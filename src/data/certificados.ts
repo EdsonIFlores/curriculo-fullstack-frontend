@@ -1,4 +1,16 @@
-const certificadosIniciais: Certificado[] = [
+// 1. Definição da Interface (O molde dos dados)
+export interface Certificado {
+  id: string;
+  titulo: string;
+  descricao: string;
+  imagem: string;
+  categoria: string;
+  data?: string;          // O '?' significa que é opcional
+  cargaHoraria?: string;  // O '?' significa que é opcional
+}
+
+// 2. Os seus dados corrigidos
+export const certificadosIniciais: Certificado[] = [
   {
     id: "cisco-cybersecurity",
     titulo: "Cybersecurity Essentials",
@@ -48,7 +60,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Redes Parte 1: Conceitos e Prática",
     descricao: "Alura • Formação Redes",
     imagem: "/certificados/redes_I.jpg",
-    categoria: "Udemy",
+    categoria: "Alura", // Ajustado de Udemy para Alura
     cargaHoraria: "10h",
     data: "10/07/2022",
   },
@@ -57,7 +69,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Redes Parte 2: Projeto do Cliente ao Provedor",
     descricao: "Alura • Formação Redes",
     imagem: "/certificados/rede_II.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "10h",
     data: "12/07/2022",
   },
@@ -66,7 +78,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Redes Parte 3: Listas de Controle e Políticas de Acesso",
     descricao: "Alura • Formação Redes",
     imagem: "/certificados/redes_3.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "5h",
     data: "13/07/2022",
   },
@@ -75,7 +87,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Redes Parte 4: Protocolos de Roteamento e IPv6",
     descricao: "Alura • Formação Redes",
     imagem: "/certificados/redes_4.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "8h",
     data: "13/07/2022",
   },
@@ -84,7 +96,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Redes Parte 5: Wi-Fi",
     descricao: "Alura • Formação Redes",
     imagem: "/certificados/redes_5.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "6h",
     data: "13/07/2022",
   },
@@ -93,7 +105,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Segurança de Redes: Vulnerabilidades de Servidores e Clientes",
     descricao: "Alura • Segurança",
     imagem: "/certificados/seguraca_redes.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "10h",
     data: "13/07/2022",
   },
@@ -102,7 +114,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Linux I: Conhecendo e Utilizando o Terminal",
     descricao: "Alura • Infraestrutura",
     imagem: "/certificados/linux_I.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "4h",
     data: "13/07/2022",
   },
@@ -111,7 +123,7 @@ const certificadosIniciais: Certificado[] = [
     titulo: "Linux II: Programas, Processos e Pacotes",
     descricao: "Alura • Infraestrutura",
     imagem: "/certificados/linux_II.jpg",
-    categoria: "Udemy",
+    categoria: "Alura",
     cargaHoraria: "8h",
     data: "13/07/2022",
   }
