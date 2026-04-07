@@ -7,6 +7,9 @@ import Footer from '../components/Footer';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// Vercel Analytics
+import { Analytics } from '@vercel/analytics/next';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -42,6 +45,7 @@ export default function RootLayout({
         </main>
         
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
